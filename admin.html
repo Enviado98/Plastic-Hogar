@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin · Plastic-Hogar</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body class="admin-body">
+
+  <!-- LOGIN SCREEN -->
+  <div id="login-screen" class="login-screen">
+    <div class="login-card">
+      <div class="login-logo">
+        <span>🏠</span>
+        <h1>Plastic-Hogar</h1>
+        <p>Panel de Administración</p>
+      </div>
+      <div id="login-error" class="login-error hidden">Usuario o contraseña incorrectos</div>
+      <div class="form-group">
+        <label>Usuario</label>
+        <input type="text" id="login-user" placeholder="admin" />
+      </div>
+      <div class="form-group">
+        <label>Contraseña</label>
+        <input type="password" id="login-pass" placeholder="••••••" />
+      </div>
+      <button class="btn-login" id="btn-login">Entrar <i class="fas fa-arrow-right"></i></button>
+      <a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i> Volver a la tienda</a>
+    </div>
+  </div>
+
+  <!-- ADMIN PANEL -->
+  <div id="admin-panel" class="admin-panel hidden">
+    <aside class="admin-sidebar">
+      <div class="sidebar-logo">
+        <span>🏠</span>
+        <span>Plastic-Hogar</span>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="#" class="sidebar-link active" data-view="productos">
+          <i class="fas fa-box"></i> Productos
+        </a>
+        <a href="#" class="sidebar-link" data-view="nuevo">
+          <i class="fas fa-plus-circle"></i> Nuevo Producto
+        </a>
+        <a href="index.html" class="sidebar-link">
+          <i class="fas fa-store"></i> Ver Tienda
+        </a>
+        <a href="#" class="sidebar-link logout-link" id="btn-logout">
+          <i class="fas fa-sign-out-alt"></i> Cerrar Sesión
+        </a>
+      </nav>
+    </aside>
+
+    <main class="admin-main">
+      <!-- HEADER -->
+      <div class="admin-topbar">
+        <h2 id="admin-view-title">Gestión de Productos</h2>
+        <span class="admin-user-tag"><i class="fas fa-user-shield"></i> Administrador</span>
+      </div>
+
+      <!-- LISTA DE PRODUCTOS -->
+      <div id="view-productos" class="admin-view">
+        <div class="admin-toolbar">
+          <input type="text" id="admin-search" placeholder="Buscar producto..." class="admin-search-input" />
+          <button class="btn-primary" id="btn-go-nuevo"><i class="fas fa-plus"></i> Nuevo Producto</button>
+        </div>
+        <div class="admin-stats" id="admin-stats">
+          <div class="stat-card">
+            <i class="fas fa-box"></i>
+            <div><span id="stat-total">0</span><p>Total Productos</p></div>
+          </div>
+        </div>
+        <div id="admin-productos-list" class="admin-productos-list">
+          <div class="loading-state"><div class="spinner"></div><p>Cargando...</p></div>
+        </div>
+      </div>
+
+      <!-- NUEVO / EDITAR PRODUCTO -->
+      <div id="view-nuevo" class="admin-view hidden">
+        <div class="form-card">
+          <h3 id="form-title">Nuevo Producto</h3>
+          <input type="hidden" id="edit-id" />
+
+          <div class="form-row">
+            <div class="form-group">
+              <label>Nombre del Producto *</label>
+              <input type="text" id="prod-nombre" placeholder="Ej: Vaso plástico 500ml" />
+            </div>
+            <div class="form-group">
+              <label>Categoría *</label>
+              <select id="prod-categoria">
+                <option value="">Seleccionar...</option>
+                <option value="vasos">🥤 Vasos</option>
+                <option value="pozuelos">🍽️ Pozuelos</option>
+                <option value="recipientes">📦 Recipientes</option>
+                <option value="limpieza">🧹 Limpieza</option>
+                <option value="cocina">🍳 Cocina</option>
+                <option value="otros">✨ Otros</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Descripción</label>
+            <textarea id="prod-desc" rows="3" placeholder="Describe el producto..."></textarea>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label>Precio (CUP) *</label>
+              <input type="number" id="prod-precio" placeholder="0.00" step="0.01" min="0" />
+            </div>
+            <div class="form-group">
+              <label>Stock / Disponibilidad</label>
+              <select id="prod-stock">
+                <option value="disponible">✅ Disponible</option>
+                <option value="agotado">❌ Agotado</option>
+                <option value="limitado">⚠️ Stock Limitado</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Imagen del Producto</label>
+            <div class="img-upload-area" id="img-upload-area">
+              <input type="file" id="prod-imagen" accept="image/*" class="file-input" />
+              <div class="upload-placeholder" id="upload-placeholder">
+                <i class="fas fa-cloud-upload-alt"></i>
+                <p>Haz clic o arrastra una imagen</p>
+                <span>JPG, PNG, WEBP · Máx 5MB</span>
+              </div>
+              <img id="img-preview" class="img-preview hidden" src="" alt="Preview" />
+            </div>
+            <div class="form-group" id="url-group" style="margin-top:10px">
+              <label>O pega una URL de imagen</label>
+              <input type="url" id="prod-imagen-url" placeholder="https://..." />
+            </div>
+          </div>
+
+          <div class="form-actions">
+            <button class="btn-secondary" id="btn-cancel-form">Cancelar</button>
+            <button class="btn-primary" id="btn-save-product">
+              <i class="fas fa-save"></i> <span id="btn-save-text">Guardar Producto</span>
+            </button>
+          </div>
+          <div id="form-feedback" class="form-feedback hidden"></div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- CONFIRM DELETE MODAL -->
+  <div class="modal-overlay hidden" id="confirm-modal">
+    <div class="confirm-dialog">
+      <div class="confirm-icon"><i class="fas fa-trash-alt"></i></div>
+      <h3>¿Eliminar Producto?</h3>
+      <p>Esta acción no se puede deshacer.</p>
+      <div class="confirm-actions">
+        <button class="btn-secondary" id="confirm-cancel">Cancelar</button>
+        <button class="btn-danger" id="confirm-delete">Eliminar</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="app.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>
