@@ -90,8 +90,8 @@ function renderProducts(list) {
     <div class="product-card" data-id="${p.id}" style="animation-delay:${i * 0.06}s">
       <div class="product-img-wrap">
         ${p.imagen_url
-          ? `<img src="${p.imagen_url}" alt="${p.nombre}" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\'product-no-img\'>${getCatEmoji(p.categoria)}</div>'">`
-          : `<div class="product-no-img">${getCatEmoji(p.categoria)}</div>`
+          ? `<img src="${p.imagen_url}" alt="${p.nombre}" loading="lazy" onerror="this.parentElement.innerHTML='<div class=&quot;product-no-img&quot;><div class=&quot;no-img-icon&quot;></div></div>'">`
+          : `<div class="product-no-img"><div class="no-img-icon"></div></div>`
         }
         ${p.stock === 'agotado' ? '<span class="product-badge agotado">Agotado</span>' : ''}
         ${p.stock === 'limitado' ? '<span class="product-badge limitado">Limitado</span>' : ''}
@@ -104,7 +104,7 @@ function renderProducts(list) {
         <div class="product-footer">
           <div class="product-price">${formatPrice(p.precio)}</div>
           <a href="${buildWaLink(p)}" target="_blank" class="btn-comprar" onclick="event.stopPropagation()">
-            <i class="fab fa-whatsapp"></i> Comprar
+            <span class="wa-ico"></span> Comprar
           </a>
         </div>
       </div>
@@ -242,4 +242,3 @@ document.addEventListener('DOMContentLoaded', () => {
     initStore();
   }
 });
-
