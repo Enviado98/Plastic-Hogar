@@ -3,138 +3,142 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
-  <title>Plastic-Hogar | Tu Hogar, Nuestro Orgullo</title>
+  <title>Plastic-Hogar | Camagüey, Cuba</title>
   <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,600&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 </head>
 <body>
 
-  <!-- HERO / HEADER -->
   <header id="site-header">
     <div class="header-inner">
-      <div class="logo-wrap">
-        <span class="logo-icon">🏠</span>
-        <div class="logo-text">
-          <span class="logo-main">Plastic-Hogar</span>
-          <span class="logo-sub">Artículos del Hogar · Cuba</span>
+      <a class="css-logo" href="#">
+        <div class="logo-house">
+          <div class="logo-window"><span></span><span></span><span></span><span></span></div>
+          <div class="logo-shine"></div>
+          <div class="logo-arc"></div>
         </div>
-      </div>
+        <div class="logo-text-wrap">
+          <span class="logo-name">Plastic<span>-Hogar</span></span>
+          <span class="logo-place">Camagüey · Cuba</span>
+        </div>
+      </a>
       <nav class="main-nav">
         <a href="#productos" class="nav-link">Productos</a>
         <a href="#categorias" class="nav-link">Categorías</a>
         <a href="#contacto" class="nav-link">Contacto</a>
-        <a href="admin.html" class="nav-admin"><i class="fas fa-lock"></i> Admin</a>
+        <a href="admin.html" class="nav-admin">Admin</a>
       </nav>
-      <button class="burger" id="burger"><i class="fas fa-bars"></i></button>
+      <button class="burger" id="burger">☰</button>
     </div>
     <div class="mobile-nav" id="mobile-nav">
       <a href="#productos">Productos</a>
       <a href="#categorias">Categorías</a>
       <a href="#contacto">Contacto</a>
-      <a href="admin.html">Admin</a>
+      <a href="admin.html">Panel Admin</a>
     </div>
   </header>
 
-  <!-- HERO SECTION -->
   <section class="hero">
     <div class="hero-bg"></div>
     <div class="hero-content">
-      <p class="hero-tag">🇨🇺 Hecho con amor en Cuba</p>
-      <h1 class="hero-title">Todo para tu <span class="accent">Hogar</span></h1>
-      <p class="hero-desc">Vasos, pozuelos, recipientes y mucho más. Calidad y color para cada rincón de tu casa.</p>
-      <a href="#productos" class="btn-hero">Ver Productos <i class="fas fa-arrow-down"></i></a>
-    </div>
-    <div class="hero-float">
-      <div class="float-item f1">🥤</div>
-      <div class="float-item f2">🍽️</div>
-      <div class="float-item f3">🧴</div>
-      <div class="float-item f4">🪣</div>
-    </div>
-  </section>
-
-  <!-- CATEGORÍAS -->
-  <section class="categorias" id="categorias">
-    <div class="section-inner">
-      <h2 class="section-title">Categorías</h2>
-      <div class="cat-grid" id="cat-grid">
-        <div class="cat-card active" data-cat="todos">
-          <span class="cat-icon">🛒</span>
-          <span>Todos</span>
-        </div>
-        <div class="cat-card" data-cat="vasos">
-          <span class="cat-icon">🥤</span>
-          <span>Vasos</span>
-        </div>
-        <div class="cat-card" data-cat="pozuelos">
-          <span class="cat-icon">🍽️</span>
-          <span>Pozuelos</span>
-        </div>
-        <div class="cat-card" data-cat="recipientes">
-          <span class="cat-icon">📦</span>
-          <span>Recipientes</span>
-        </div>
-        <div class="cat-card" data-cat="limpieza">
-          <span class="cat-icon">🧹</span>
-          <span>Limpieza</span>
-        </div>
-        <div class="cat-card" data-cat="cocina">
-          <span class="cat-icon">🍳</span>
-          <span>Cocina</span>
-        </div>
-        <div class="cat-card" data-cat="otros">
-          <span class="cat-icon">✨</span>
-          <span>Otros</span>
-        </div>
+      <div class="hero-tag">
+        <span class="hero-tag-dot"></span>
+        Cuba · Camagüey · Envíos locales
+      </div>
+      <h1 class="hero-title">
+        Todo para tu<br><span class="accent">Hogar</span>
+      </h1>
+      <p class="hero-desc">
+        Vasos, pozuelos, recipientes y mucho más.<br>
+        Calidad y variedad para cada rincón de tu casa.
+      </p>
+      <div class="hero-ctas">
+        <a href="#productos" class="btn-hero">
+          Ver Productos <span class="arrow-r"></span>
+        </a>
+        <a href="https://wa.me/5356919014" target="_blank" class="btn-hero-ghost">
+          Contáctanos
+        </a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat"><strong>100+</strong><span>Productos</span></div>
+        <div class="hero-divider"></div>
+        <div class="hero-stat"><strong>Cuba</strong><span>Camagüey</span></div>
+        <div class="hero-divider"></div>
+        <div class="hero-stat"><strong>WhatsApp</strong><span>Pedidos rápidos</span></div>
       </div>
     </div>
   </section>
 
-  <!-- PRODUCTOS -->
+  <section class="categorias" id="categorias">
+    <div class="section-inner">
+      <div class="cat-header">
+        <span class="section-label">Explorar</span>
+      </div>
+      <div class="cat-grid" id="cat-grid">
+        <div class="cat-card active" data-cat="todos"><span class="cat-icon">🛒</span> Todos</div>
+        <div class="cat-card" data-cat="vasos"><span class="cat-icon">🥤</span> Vasos</div>
+        <div class="cat-card" data-cat="pozuelos"><span class="cat-icon">🍽️</span> Pozuelos</div>
+        <div class="cat-card" data-cat="recipientes"><span class="cat-icon">📦</span> Recipientes</div>
+        <div class="cat-card" data-cat="limpieza"><span class="cat-icon">🧹</span> Limpieza</div>
+        <div class="cat-card" data-cat="cocina"><span class="cat-icon">🍳</span> Cocina</div>
+        <div class="cat-card" data-cat="otros"><span class="cat-icon">✨</span> Otros</div>
+      </div>
+    </div>
+  </section>
+
   <section class="productos-section" id="productos">
     <div class="section-inner">
       <div class="productos-header">
-        <h2 class="section-title">Nuestros Productos</h2>
+        <div>
+          <span class="section-label">Catálogo</span>
+          <h2 class="section-title">Nuestros Productos</h2>
+        </div>
         <div class="search-wrap">
-          <i class="fas fa-search"></i>
+          <span class="search-ico"></span>
           <input type="text" id="search-input" placeholder="Buscar producto..." />
         </div>
       </div>
       <div class="productos-grid" id="productos-grid">
-        <div class="loading-state">
-          <div class="spinner"></div>
-          <p>Cargando productos...</p>
-        </div>
+        <div class="loading-state"><div class="spinner"></div><p>Cargando productos...</p></div>
       </div>
       <div class="empty-state hidden" id="empty-state">
-        <span>😕</span>
-        <p>No se encontraron productos.</p>
+        <span>😕</span><p>No se encontraron productos.</p>
       </div>
     </div>
   </section>
 
-  <!-- CONTACTO / FOOTER -->
   <footer id="contacto">
     <div class="footer-inner">
       <div class="footer-brand">
-        <span class="logo-icon">🏠</span>
-        <span class="logo-main">Plastic-Hogar</span>
+        <a class="css-logo white" href="#">
+          <div class="logo-house">
+            <div class="logo-window"><span></span><span></span><span></span><span></span></div>
+            <div class="logo-shine"></div>
+            <div class="logo-arc"></div>
+          </div>
+          <div class="logo-text-wrap">
+            <span class="logo-name">Plastic<span>-Hogar</span></span>
+            <span class="logo-place">Camagüey · Cuba</span>
+          </div>
+        </a>
       </div>
-      <p class="footer-desc">La mejor selección de artículos del hogar en Cuba. Calidad, variedad y precios accesibles para toda la familia.</p>
+      <p class="footer-desc">
+        La mejor selección de artículos del hogar en Camagüey, Cuba.
+        Calidad, variedad y precios accesibles para toda la familia.
+      </p>
       <div class="footer-contact">
         <a href="https://wa.me/5356919014" target="_blank" class="wa-btn">
-          <i class="fab fa-whatsapp"></i> Contáctanos por WhatsApp
+          WhatsApp · Hacer Pedido
         </a>
         <p class="footer-phone">+53 5691 9014</p>
       </div>
-      <p class="footer-copy">© 2025 Plastic-Hogar · Cuba 🇨🇺</p>
+      <p class="footer-copy">© 2025 Plastic-Hogar · Camagüey, Cuba 🇨🇺</p>
     </div>
   </footer>
 
-  <!-- MODAL PRODUCTO -->
   <div class="modal-overlay hidden" id="modal-overlay">
     <div class="product-modal" id="product-modal">
-      <button class="modal-close" id="modal-close"><i class="fas fa-times"></i></button>
+      <button class="modal-close" id="modal-close"></button>
       <div class="modal-img-wrap">
         <img id="modal-img" src="" alt="" />
       </div>
@@ -146,7 +150,7 @@
           <span class="modal-price" id="modal-price"></span>
         </div>
         <a id="modal-wa-btn" href="#" target="_blank" class="btn-comprar">
-          <i class="fab fa-whatsapp"></i> Comprar por WhatsApp
+          <span class="wa-ico"></span> Comprar por WhatsApp
         </a>
       </div>
     </div>
