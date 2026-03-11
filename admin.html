@@ -5,72 +5,85 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
   <title>Admin · Plastic-Hogar</title>
   <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,600&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 </head>
 <body class="admin-body">
 
-  <!-- LOGIN SCREEN -->
+  <!-- LOGIN -->
   <div id="login-screen" class="login-screen">
     <div class="login-card">
       <div class="login-logo">
-        <span>🏠</span>
-        <h1>Plastic-Hogar</h1>
+        <a class="css-logo" href="#" style="justify-content:center">
+          <div class="logo-house">
+            <div class="logo-window"><span></span><span></span><span></span><span></span></div>
+            <div class="logo-shine"></div>
+            <div class="logo-arc"></div>
+          </div>
+          <div class="logo-text-wrap">
+            <span class="logo-name">Plastic<span>-Hogar</span></span>
+            <span class="logo-place">Camagüey · Cuba</span>
+          </div>
+        </a>
         <p>Panel de Administración</p>
       </div>
       <div id="login-error" class="login-error hidden">Usuario o contraseña incorrectos</div>
       <div class="form-group">
         <label>Usuario</label>
-        <input type="text" id="login-user" placeholder="admin" />
+        <input type="text" id="login-user" placeholder="admin" autocomplete="username" />
       </div>
       <div class="form-group">
         <label>Contraseña</label>
-        <input type="password" id="login-pass" placeholder="••••••" />
+        <input type="password" id="login-pass" placeholder="••••••" autocomplete="current-password" />
       </div>
-      <button class="btn-login" id="btn-login">Entrar <i class="fas fa-arrow-right"></i></button>
-      <a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i> Volver a la tienda</a>
+      <button class="btn-login" id="btn-login">Entrar</button>
+      <a href="index.html" class="back-link">← Volver a la tienda</a>
     </div>
   </div>
 
   <!-- ADMIN PANEL -->
   <div id="admin-panel" class="admin-panel hidden">
+
     <aside class="admin-sidebar">
       <div class="sidebar-logo">
-        <span>🏠</span>
-        <span>Plastic-Hogar</span>
+        <a class="css-logo white" href="index.html" style="gap:8px">
+          <div class="logo-house" style="width:32px;height:32px">
+            <div class="logo-window" style="top:14px;width:10px;height:9px"><span></span><span></span><span></span><span></span></div>
+            <div class="logo-shine" style="width:4px;height:4px;top:7px;right:1px"></div>
+            <div class="logo-arc" style="width:30px;height:7px"></div>
+          </div>
+          <span style="font-size:1rem;font-weight:800;color:var(--yellow-lt)">Plastic-Hogar</span>
+        </a>
       </div>
       <nav class="sidebar-nav">
         <a href="#" class="sidebar-link active" data-view="productos">
-          <i class="fas fa-box"></i> Productos
+          <span class="s-ico s-ico-box"></span> Productos
         </a>
         <a href="#" class="sidebar-link" data-view="nuevo">
-          <i class="fas fa-plus-circle"></i> Nuevo Producto
+          <span class="s-ico s-ico-plus"></span> Nuevo Producto
         </a>
         <a href="index.html" class="sidebar-link">
-          <i class="fas fa-store"></i> Ver Tienda
+          <span class="s-ico s-ico-store"></span> Ver Tienda
         </a>
         <a href="#" class="sidebar-link logout-link" id="btn-logout">
-          <i class="fas fa-sign-out-alt"></i> Cerrar Sesión
+          <span class="s-ico s-ico-out"></span> Salir
         </a>
       </nav>
     </aside>
 
     <main class="admin-main">
-      <!-- HEADER -->
       <div class="admin-topbar">
         <h2 id="admin-view-title">Gestión de Productos</h2>
-        <span class="admin-user-tag"><i class="fas fa-user-shield"></i> Administrador</span>
+        <span class="admin-user-tag">Administrador</span>
       </div>
 
-      <!-- LISTA DE PRODUCTOS -->
+      <!-- LISTA -->
       <div id="view-productos" class="admin-view">
         <div class="admin-toolbar">
           <input type="text" id="admin-search" placeholder="Buscar producto..." class="admin-search-input" />
-          <button class="btn-primary" id="btn-go-nuevo"><i class="fas fa-plus"></i> Nuevo Producto</button>
+          <button class="btn-primary" id="btn-go-nuevo">+ Nuevo Producto</button>
         </div>
-        <div class="admin-stats" id="admin-stats">
+        <div class="admin-stats">
           <div class="stat-card">
-            <i class="fas fa-box"></i>
+            <div class="stat-ico"><div class="stat-box"></div></div>
             <div><span id="stat-total">0</span><p>Total Productos</p></div>
           </div>
         </div>
@@ -79,7 +92,7 @@
         </div>
       </div>
 
-      <!-- NUEVO / EDITAR PRODUCTO -->
+      <!-- FORMULARIO -->
       <div id="view-nuevo" class="admin-view hidden">
         <div class="form-card">
           <h3 id="form-title">Nuevo Producto</h3>
@@ -115,7 +128,7 @@
               <input type="number" id="prod-precio" placeholder="0.00" step="0.01" min="0" />
             </div>
             <div class="form-group">
-              <label>Stock / Disponibilidad</label>
+              <label>Disponibilidad</label>
               <select id="prod-stock">
                 <option value="disponible">✅ Disponible</option>
                 <option value="agotado">❌ Agotado</option>
@@ -129,13 +142,15 @@
             <div class="img-upload-area" id="img-upload-area">
               <input type="file" id="prod-imagen" accept="image/*" class="file-input" />
               <div class="upload-placeholder" id="upload-placeholder">
-                <i class="fas fa-cloud-upload-alt"></i>
+                <div class="upload-cloud">
+                  <div class="upload-arrow"></div>
+                </div>
                 <p>Haz clic o arrastra una imagen</p>
                 <span>JPG, PNG, WEBP · Máx 5MB</span>
               </div>
               <img id="img-preview" class="img-preview hidden" src="" alt="Preview" />
             </div>
-            <div class="form-group" id="url-group" style="margin-top:10px">
+            <div class="form-group" style="margin-top:10px">
               <label>O pega una URL de imagen</label>
               <input type="url" id="prod-imagen-url" placeholder="https://..." />
             </div>
@@ -144,7 +159,7 @@
           <div class="form-actions">
             <button class="btn-secondary" id="btn-cancel-form">Cancelar</button>
             <button class="btn-primary" id="btn-save-product">
-              <i class="fas fa-save"></i> <span id="btn-save-text">Guardar Producto</span>
+              <span id="btn-save-text">Guardar Producto</span>
             </button>
           </div>
           <div id="form-feedback" class="form-feedback hidden"></div>
@@ -153,10 +168,12 @@
     </main>
   </div>
 
-  <!-- CONFIRM DELETE MODAL -->
+  <!-- CONFIRM DELETE -->
   <div class="modal-overlay confirm-visible hidden" id="confirm-modal">
     <div class="confirm-dialog">
-      <div class="confirm-icon"><i class="fas fa-trash-alt"></i></div>
+      <div class="confirm-icon">
+        <div class="trash-ico"></div>
+      </div>
       <h3>¿Eliminar Producto?</h3>
       <p>Esta acción no se puede deshacer.</p>
       <div class="confirm-actions">
@@ -171,4 +188,3 @@
   <script src="admin.js"></script>
 </body>
 </html>
-
